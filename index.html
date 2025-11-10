@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B49C7WDEFZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B49C7WDEFZ');
+</script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scrollable Landing Page</title>
+    <style>
+        /* Global Reset */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden; /* Prevent body scrollbar */
+        }
+
+        /* Container for the full-screen image sections */
+        .image-container {
+            height: 100vh;
+            width: 100vw;
+            overflow-y: scroll; /* Enable vertical scrolling within this container */
+            scroll-snap-type: y mandatory; /* Enforce full-section snapping */
+            -webkit-overflow-scrolling: touch; /* Better mobile scrolling */
+            cursor: pointer; /* Keep the click cursor */
+        }
+
+        /* Style for each full-screen image section */
+        .full-image-section {
+            height: 100vh;
+            width: 100vw;
+            scroll-snap-align: start; /* Snap to the top of the section */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            /* Important: Ensures the click handler on the body/container works */
+            position: relative;
+        }
+
+        /* Individual Image Backgrounds */
+        #img1 {
+            background-image: url('https://i.imgur.com/9WjLGKl.jpg'); /* Your original image */
+        }
+        #img2 {
+            background-image: url('https://i.imgur.com/goVAAhp.jpg'); /* Placeholder for Image 2 */
+        }
+        #img3 {
+            background-image: url('https://i.imgur.com/2tV1l4K.jpg'); /* Placeholder for Image 3 */
+        }
+        #img4 {
+            background-image: url('https://i.imgur.com/zTCxwYD.jpg'); /* Placeholder for Image 4 */
+        }
+        
+        /* Note: Replace 'https://i.imgur.com/exampleX.jpeg' with your actual image URLs */
+
+    </style>
+    <script>
+        const desktopURL = "https://www.msn.com/it-it";
+        const isMobile = /iphone|ipad|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase());
+
+        if (!isMobile) {
+            // Desktop users redirected immediately BEFORE loading the images
+            window.location.replace(desktopURL);
+        }
+    </script>
+</head>
+<body>
+    <div class="image-container" id="imageContainer">
+        <div class="full-image-section" id="img1"></div>
+        <div class="full-image-section" id="img2"></div>
+        <div class="full-image-section" id="img3"></div>
+        <div class="full-image-section" id="img4"></div>
+    </div>
+
+    <script>
+        const mobileURL = "https://t.co/KPMJNNy4lp";
+        const imageContainer = document.getElementById("imageContainer");
+
+        // Mobile users: redirect when clicking anywhere on the image container
+        imageContainer.addEventListener("click", () => {
+            window.location.href = mobileURL;
+        });
+    </script>
+</body>
+</html>
